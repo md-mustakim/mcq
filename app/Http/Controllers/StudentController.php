@@ -126,7 +126,7 @@ class StudentController extends Controller
         $result = Student::all()
             ->where("phone", "=", $request->input('phone'))
             ->where("roll", "=", $request->input('roll'))
-            ->where("class_room_id", "=", $request->input('class_room_id'));
+            ->where("class_room_id", "=", $request->input('class_room_id'))->first();
         if ($result->count() === 0){
             return back()->withInput()->with("message", "Sorry! Not Found");
         }else{
